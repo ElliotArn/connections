@@ -1,0 +1,174 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+/* Make sure the date form is at the top */
+form {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: fixed; /* Fix form at the bottom */
+    bottom: 0; /* Align at the very bottom */
+    background-color: #f9f9f9; /* Match the page background */
+}
+/* Container should remain centered */
+.container {
+    text-align: center;
+    flex-grow: 1;
+}
+
+
+/* Styling for the grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Keep a 4-column grid by default */
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%; /* Make the grid responsive to smaller screens */
+}
+
+/* Styling for individual squares */
+.square {
+    aspect-ratio: 1; /* Keeps the squares' width and height equal */
+    width: 100%; /* Adjust based on the grid container size */
+    max-width: 150px; /* Maximum size to prevent oversized boxes */
+    background-color: #eaeaea;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: center;
+    word-wrap: break-word;
+    padding: 10px;
+    overflow-wrap: break-word;
+}
+
+/* Change color on hover */
+.square:hover {
+    background-color: #d3d3d3;
+}
+
+.square.selected {
+    background-color: lightblue;
+    border: 2px solid blue;
+}
+
+/* Submit button styling */
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+#selected-container {
+
+    margin-bottom: 10px;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+}
+
+#tries {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.selected-square {
+    padding: 10px;
+    height: auto;
+    width: 100%; /* Make it full width and adjust according to container */
+    flex: 1;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 4px;
+    font-size: 24px;
+}
+
+/* Ensure the form input is aligned properly */
+input[type="date"] {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 100%; /* Full width on mobile */
+}
+
+/* Media queries for responsive design */
+
+/* Adjustments for tablets or smaller screens */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on tablets */
+        gap: 8px;
+        max-width: 100%;
+    }
+
+    .square {
+        font-size: 20px;  /* Smaller font for tablets */
+        padding: 8px;
+    }
+
+    #selected-container {
+        width: 100%;  /* Make selected container full width on smaller screens */
+    }
+
+    .submit-btn {
+        font-size: 16px;  /* Adjust button font size */
+    }
+}
+
+/* Adjustments for mobile phones */
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Reduce to 2 columns on mobile */
+        gap: 8px;  /* Smaller gap between squares */
+        max-width: 100%;
+    }
+
+    .square {
+        font-size: 16px;  /* Smaller font size on mobile */
+        padding: 5px;     /* Smaller padding on mobile */
+    }
+
+    .submit-btn {
+        font-size: 14px; /* Smaller font size for buttons on mobile */
+        padding: 8px 16px;
+    }
+
+    .selected-square {
+        font-size: 20px;  /* Adjust selected square font size */
+        padding: 5px;     /* Smaller padding */
+        width: 100%;      /* Full width on mobile */
+    }
+
+    input[type="date"] {
+        font-size: 14px;  /* Smaller input size for mobile */
+    }
+
+    form {
+        top: 10px; /* Adjust form position on small screens */
+    }
+}
